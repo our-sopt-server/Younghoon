@@ -1,7 +1,7 @@
 var group2 ={
     groupName:'파트장님 저희 이쁘조...?',
     members :[
-        {name:"최영훈", nickname:"유엑스유아인", age:26, status:'OB'},
+        {name:"최영훈", nickname:"UXUI", age:26, status:'OB'},
         {name:"유가희", nickname:"한혜진", age:25, status:'OB'},
         {name:"김민지", nickname:"하니", age:24, status:'YB'},
         {name:"박우영", nickname:"초상화 그녀", age:24, status:'YB'},
@@ -24,8 +24,8 @@ var group2 ={
         this.members.push(JSON.parse(str))
     }
 }
-//console.log(group2);
-//group2.printGroupName();
-//group2.printAllMember();
-group2.addMember('heel','as',12,'yn');
+console.log(group2);
+group2.printGroupName();
+group2.printAllMember();
+group2.addMember('박경선',"서버요정",2,'파트장');
 console.log(group2);
