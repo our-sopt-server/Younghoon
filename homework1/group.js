@@ -11,7 +11,7 @@ var group2 ={
     printGroupName: function(){
         console.log('조 이름은 :', this.groupName);
     },
-    printAllMember: function(){
+    printAllMember: ()=>{
         let str = "저희 조에는 "
         this.members.forEach((member) =>
             str += member.name+', '
