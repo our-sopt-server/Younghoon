@@ -16,5 +16,11 @@ module.exports = [
         name: '최정균',
         password: 'password',
         email: 'wjdrbs@gmail.com'
+    },
+    {
+        id:'dudgns',
+        name:'최영훈',
+        password:'123',
+        email:'asdqwe'
     }
 ];
