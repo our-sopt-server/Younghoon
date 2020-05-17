@@ -4,6 +4,7 @@ const users = require('../model/users');
 const util = require('../modules/util');
 const resMessage = require('../modules/responseMessage');
 const statusCode = require('../modules/statusCode');
+const encryption = require('../modules/encryption');
 
 router.post('/signup', async (req,res) =>{
   const {id, name, password, email} = req.body;
@@ -16,12 +17,13 @@ router.post('/signup', async (req,res) =>{
   if(users.filter(it => it.id ===id).length>0){
     return  res.status(statusCode.BAD_REQUEST)
     .send(util.fail(statusCode.BAD_REQUEST,resMessage.BAD_REQUEST));
-
   }
+  const salt = encryption.salt();
+  const encryptPassword = await encryption.encrypt(password,salt);
 
-  users.push({id,name,password,email});
+  users.push({id,name,encryptPassword,salt,email});
   res.status(statusCode.OK)
-  .send(util.success(statusCode.OK,resMessage.CREATED_USER,users[users.length -1].id));
+  .send(util.success(statusCode.OK,resMessage.CREATED_USER,users[users.length -1]));
 });
 
 router.post('/signin', async(req,res) =>{
@@ -47,10 +49,6 @@ router.post('/signin', async(req,res) =>{
 
   res.status(statusCode.OK).send(util.success(statusCode.OK,resMessage.LOGIN_SUCCESS,user));  
 })
-
-router.get('/', function(req, res, next) {
-  res.send('user페이지');
-});
 
 router.get('/profile/:id', async (req,res)=>{
   //request params에서 데이터 가져오기

@@ -18,9 +18,9 @@ module.exports = [
         email: 'wjdrbs@gmail.com'
     },
     {
-        id:'dudgns',
-        name:'최영훈',
-        password:'123',
-        email:'asdqwe'
+        id:'test',
+        name:'test',
+        password:'1234',
+        email:'test'
     }
 ];
