@@ -1,4 +1,4 @@
-const cryptoModule = require('../../week2/encrypto');
+const cryptoModule = require('./encrypto');
 const fs = require('fs');
 
 async function result(){
