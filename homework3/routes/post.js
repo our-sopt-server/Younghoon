@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router({mergeParams:true});
-const posts = require('../model/posts');
+let posts = require('../model/posts');
 const util = require('../modules/util');
 const resMessage = require('../modules/responseMessage');
 const statusCode = require('../modules/statusCode');
@@ -33,8 +33,7 @@ router.get('/:id', async (req,res)=>{
     }
 
     const post = posts.filter(it=>it.postIdx === id);
-
-    if(Object.keys(post).length==0){
+    if(Object.keys(post).length===0){
         return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST,resMessage.NO_POST_IDX));
     }
 
@@ -42,4 +41,30 @@ router.get('/:id', async (req,res)=>{
     .send(util.success(statusCode.OK,resMessage.READ_POST,post));
 })
 
+router.get('/', async (req,res)=>{
+    //전체 조회
+    res.status(statusCode.OK)
+    .send(util.success(statusCode.OK,resMessage.READ_POST,posts));
+})
+
+router.delete('/:id', async(req,res) =>{
+    const {id} =req.params;
+
+    //id 값 체크
+    if(!id){
+        res.status(statusCode.BAD_REQUEST)
+        .send(util.fail(statusCode.BAD_REQUEST,resMessage.NULL_VALUE));
+        return;
+    }
+
+    const post = posts.filter(it => it.postIdx !== id);
+    posts = post;
+    console.log(posts);
+    res.status(statusCode.OK).send(util.success(statusCode.OK,resMessage.DELETE_POST,post))
+})
+
+router.put('/:id', async(req,res) => {
+    const {id} = req.params;
+    
+})
 module.exports = router;
