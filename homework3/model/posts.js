@@ -1,15 +1,21 @@
 module.exports =[
     {
-        postIdx:"1",
+        postIdx:"0",
         author:"이현주",
-        title:"나는 왜이리 멍청할까 ㅠ",
+        title:"나는 이현주입니다.",
         content:"ㅠㅠㅠㅠㅠㅠㅠ"
     },
     {
+        postIdx:"1",
+        author:"피카츄",
+        title:"피카피카",
+        content:"ㅋㅋㅋㅋㅋㅠ"
+    },
+    {
         postIdx:"2",
-        author:"이현주",
-        title:"나는 왜이리 바보일까 ㅠ",
-        content:"또 왔습니다.. ㅠ"
+        author:"아구몬",
+        title:"저는 포켓몬입니다.",
+        content:"안녕하세요"
     },
     {
         postIdx:"3",
