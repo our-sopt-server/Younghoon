@@ -2,6 +2,7 @@ module.exports = {
     NULL_VALUE: "필요한 값이 없습니다",
     OUT_OF_VALUE: "파라미터 값이 잘못되었습니다",
 
+
     // 회원가입
     CREATED_USER: "회원 가입 성공",
     DELETE_USER: "회원 탈퇴 성공",
@@ -18,11 +19,18 @@ module.exports = {
 
     //DB에러
     DB_ERROR: "DB에러",
+    
 
     //post
     CREATED_POST:"포스팅 성공",
     READ_POST:"포스트 조회 성공",
+    Read_All_POST:"포스트 전체 조회 성공",
     NO_POST_IDX:"포스트 인덱스 없음",
     DELETE_POST:"포스트 삭제 완료",
-    UPDATE_POST:"포스트 수정 완료"
+    UPDATE_POST:"포스트 수정 완료",
+    PERMISSION_DENIED_UPDATE_POST:"포스트 업데이트 권한 없음",
+    UPDATE_FAIL:"업데이트 실패",
+    DELETE_FAIL:"삭제 실패",
+    PERMISSION_DENIED_DELETE_POST:"포스트 삭제 권한 없음"
+
 };

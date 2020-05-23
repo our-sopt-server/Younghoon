@@ -12,10 +12,8 @@
 |CommentIdx(PK)|ArticleIdx(FK)|userIdx(FK)|commentContent|
 |--|------|---|---|
 |0|0|0|정말 좋은글입니다.!|
-|1|0|1|최고에요!|
-|2|1|0| 좋은글입니다!|
 
 ## LIKE        
-LikeIdx|ArticleIdx|userIdx|
+LikeIdx(PK)|ArticleIdx(FK)|userIdx(FK)|
 |---|--|------|
 |0|1|1|
