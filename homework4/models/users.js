@@ -40,7 +40,7 @@ const users = {
     },
     signin : async (id) =>{
         //1 hashed password 와 salt 가져오기
-        const query = `SELECT password, salt FROM ${table} WHERE id = "${id}"`;
+        const query = `SELECT * FROM ${table} WHERE id = "${id}"`;
         try{
             const result = await pool.queryParam(query);
             return result;

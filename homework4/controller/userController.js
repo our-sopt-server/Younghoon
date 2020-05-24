@@ -58,10 +58,9 @@ module.exports = {
         if (DBPassword !== hashedPassword) {
             return await res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, resMessage.MISS_MATCH_PW));
         }
-        const {token, refreshToken} = await jwt.sign(result[0])
+        const {token, _} = await jwt.sign(result[0])
         await res.status(statusCode.OK).send(util.success(statusCode.OK, resMessage.LOGIN_SUCCESS, 
-            {accessToken:token,
-            refreshToken:refreshToken}));
+            {accessToken:token}));
     },
     getUserById: async (req, res) => {
         //유저 조회하기 (유저 이메일, 이름 등등...)

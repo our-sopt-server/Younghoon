@@ -6,8 +6,7 @@ const moment = require('moment');
 
 module.exports = {
     createPosting : async (req, res) => {
-        //Authorization 받아왔다 치고
-        const writerIdx = 8; // USER table 로부터 참조한 FK 
+        const writerIdx = req.userIdx;
         const {title, content} = req.body;
         const createdAt = moment().format('MM/DD/YYYY HH:mm:ss');
         
@@ -35,8 +34,7 @@ module.exports = {
         return await res.status(statusCode.OK).send(util.success(statusCode.OK,resMessage.READ_ALL_POST,postData));
     },
     updatePost : async (req,res) =>{
-        //authorization 에서 받아온 값
-        const  writerIdx = 7;
+        const writerIdx = req.userIdx;
         const {postIdx, title, content} = req.body;
         if(!writerIdx || !postIdx || !title || !content){
             return await res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, resMessage.NULL_VALUE));
@@ -58,8 +56,7 @@ module.exports = {
             }));
     },
     deletePost : async (req,res)=>{
-        //auth~
-        const writerIdx = 8;
+        const writerIdx = req.userIdx;
         const {postIdx} = req.body;
         if(!postIdx){
             return await res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, resMessage.NULL_VALUE));
