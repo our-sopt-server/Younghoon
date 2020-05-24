@@ -21,7 +21,7 @@ module.exports = {
             return await res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, resMessage.ALREADY_ID));
         }
 
-        const salt = encryption.salt();
+        const salt = await encryption.salt();
         const idx = await users.signup(id, name, password, salt, email);
         if (idx === -1) {
             return await res.status(statusCode.DB_ERROR).send(util.fail(statusCode.DB_ERROR, resMessage.DB_ERROR));
