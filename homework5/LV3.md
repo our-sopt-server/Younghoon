@@ -58,19 +58,19 @@ module.exports =router;
 
 #### 로그
 
-<img src="https://github.com/our-sopt-server/Younghoon/blob/master/homework5/img/로그.png?raw=true" width="600px" />
+<img src="https://github.com/our-sopt-server/Younghoon/blob/master/homework5/img/로그.png?raw=true" width="1000px" />
 
 
 
 #### 토큰설정
 
-<img src="https://github.com/our-sopt-server/Younghoon/blob/master/homework5/img/post%20token.png?raw=true" width="600px" />
+<img src="https://github.com/our-sopt-server/Younghoon/blob/master/homework5/img/post%20token.png?raw=true" width="1000px" height="550px"/>
 
 
 
 #### CREATE 포스트
 
-<img src="https://github.com/our-sopt-server/Younghoon/blob/master/homework5/img/create.png?raw=true" width="400px" />
+<img src="https://github.com/our-sopt-server/Younghoon/blob/master/homework5/img/create.png?raw=true" width="700px" />
 
 
 
