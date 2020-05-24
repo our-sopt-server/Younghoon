@@ -3,6 +3,7 @@ const users = require('../models/users');
 const util = require('../modules/util');
 const resMessage = require('../modules/responseMessage');
 const statusCode = require('../modules/statusCode');
+const jwt = require('../modules/jwt')
 
 module.exports = {
     signup: async (req, res) => {
@@ -48,6 +49,7 @@ module.exports = {
         }
 
         //로그인 로직
+        //result가 user를 받아온 결과
         const result = await users.signin(id);
         const DBPassword = result[0].password;
         const DBSalt = result[0].salt;
@@ -56,8 +58,10 @@ module.exports = {
         if (DBPassword !== hashedPassword) {
             return await res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, resMessage.MISS_MATCH_PW));
         }
-
-        await res.status(statusCode.OK).send(util.success(statusCode.OK, resMessage.LOGIN_SUCCESS, id));
+        const {token, refreshToken} = await jwt.sign(result[0])
+        await res.status(statusCode.OK).send(util.success(statusCode.OK, resMessage.LOGIN_SUCCESS, 
+            {accessToken:token,
+            refreshToken:refreshToken}));
     },
     getUserById: async (req, res) => {
         //유저 조회하기 (유저 이메일, 이름 등등...)
