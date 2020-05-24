@@ -67,7 +67,6 @@ module.exports = {
         const {
             id
         } = req.body;
-        console.log(id)
 
         //존재하는 아이디인지 확인 - 없다면 No user
         const idCheck = await users.checkUser(id);
