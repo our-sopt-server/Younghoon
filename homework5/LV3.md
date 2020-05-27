@@ -19,7 +19,7 @@ module.exports = {
         if (!token) {
             return res.json(util.fail(statusCode.BAD_REQUEST, resMessage.EMPTY_TOKEN));
         }
-        const user = await jwt.verify(token); // 토큰을 decode하고
+        const user = await jwt.verify(token); // decode된 토큰 값을 받아오고.
         if (user === TOKEN_EXPIRED) {
             return res.json(util.fail(statusCode.UNAUTHORIZED, resMessage.EXPIRED_TOKEN));
         }
