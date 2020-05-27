@@ -15,11 +15,11 @@ const TOKEN_INVALID = -2;
 
 module.exports = {
     LoggedIn: async (req, res, next) => {
-        const token = req.headers.token;
+        const token = req.headers.token; //헤더로부터 토큰을 받아온다.
         if (!token) {
             return res.json(util.fail(statusCode.BAD_REQUEST, resMessage.EMPTY_TOKEN));
         }
-        const user = await jwt.verify(token);
+        const user = await jwt.verify(token); // 토큰을 decode하고
         if (user === TOKEN_EXPIRED) {
             return res.json(util.fail(statusCode.UNAUTHORIZED, resMessage.EXPIRED_TOKEN));
         }
@@ -29,8 +29,8 @@ module.exports = {
         if (user === undefined) {
             return res.json(util.fail(statusCode.UNAUTHORIZED, resMessage.INVALID_TOKEN));
         }
-        req.userIdx = user.idx;
-        next();
+        req.userIdx = user.idx; // decode된 user 객체에서 userIdx값을 가져와 
+        next(); //req.userIdx값을 다음 라우터에 넘긴다!
     }
 }
 ```
