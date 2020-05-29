@@ -37,6 +37,10 @@ module.exports = {
     EMPTY_TOKEN : "토큰이 없습니다.",
     EXPIRED_TOKEN:"토큰이 만료되었습니다.",
     INVALID_TOKEN:"유효하지 않은 토큰입니다.",
-    AUTH_SUCCESS:"인증 성공"
+    AUTH_SUCCESS:"인증 성공",
+
+    //좋아요
+    DELETE_LIKE:"좋아요 취소",
+    ADD_LIKE:"좋아요 추가"
 
 };
